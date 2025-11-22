@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Mis estilos -->
+    <link rel="stylesheet" href="assets/style/style.css">
+    <title>Gestión de Reservas en un Cine</title>
+</head>
+<body>
+    <div class="container py-4">
+        <div class="text-center">
+            <h1 class="text-white mb-2">
+                <i class="fas fa-film me-2"></i>
+                Cine en su casa
+            </h1>
+            <p class="text-white">Reserva tus asientos</p>
+        </div>
+
+        <!-- Pantalla de Bienvenida -->
+        <div id="welcome" class="cinema-card p-4">
+            <div class="text-center">
+                <i class="fas fa-ticket fa-5x text-primary mb-4"></i>
+                <h2 class="mb-4">Bienvenido al Sistema de Reservas</h2>
+                <p class="lead mb-4">Selecciona tu sala favorita y reserva tus asientos</p>
+                <button class="btn btn-primary btn-lg" onclick="showHallSelection()">
+                    <i class="fas fa-play me-2"></i>Comenzar
+                </button>
+            </div>
+        </div>
+
+        <!-- Selección de Sala -->
+        <div id="hallSelection" class="cinema-card p-4" style="display: none;">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2><i class="fas fa-door-open me-2"></i>Selecciona una Sala</h2>
+                <button class="btn btn-outline-secondary" onclick="showWelcome()">
+                    <i class="fas fa-arrow-left me-2"></i>Volver
+                </button>
+            </div>
+            <div id="hallCards" class="row g-3"></div>
+        </div>
+
+        <!-- Selección de Asientos -->
+        <div id="seatSelection" class="cinema-card p-4" style="display: none;">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 id="currentHallTitle"><i class="fas fa-chair me-2"></i>Sala</h2>
+                <button class="btn btn-outline-secondary" onclick="showHallSelection()">
+                    <i class="fas fa-arrow-left me-2"></i>Cambiar Sala
+                </button>
+            </div>
+
+            <div class="row">
+                <!-- Mapa de asientos -->
+                <div class="col-lg-8">
+                    <div class="screen mb-3">PANTALLA</div>
+                    <div id="seatsMap" class="seats-container mb-4"></div>
+
+                    <!-- Leyenda -->
+                    <div class="legend d-flex justify-content-center gap-3 flex-wrap">
+                        <div class="legend-item">
+                            <div class="seat available"></div>
+                            <span>Disponible</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="seat selected"></div>
+                            <span>Seleccionado</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="seat occupied"></div>
+                            <span>Ocupado</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="seat user-occupied"></div>
+                            <span>Tu reserva</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resumen de reserva -->
+                <div class="col-lg-4">
+                    <div class="summary-card p-3">
+                        <h4 class="mb-3"><i class="fas fa-clipboard-list me-2"></i>Resumen</h4>
+                        <p class="mb-2">
+                            <strong>Sala:</strong> <span id="summaryHall"></span>
+                        </p>
+                        <p class="mb-2">
+                            <strong>Asientos seleccionados:</strong>
+                            <span class="badge bg-primary" id="selectedSeatsCount">0</span>
+                        </p>
+                        <div id="selectedSeatsList" class="mb-3">
+                            <p class="text-muted small">No hay asientos seleccionados</p>
+                        </div>
+                        <hr>
+                        <h5 class="mb-3">
+                            <strong>Total:</strong>
+                            <span class="text-primary" id="totalPrice">$0</span>
+                        </h5>
+                        <div class="d-grid gap-2">
+                            <button id="confirmBtn" class="btn btn-success" onclick="confirmReservation()" disabled>
+                                <i class="fas fa-check me-2"></i>Confirmar Reserva
+                            </button>
+                            <button class="btn btn-outline-danger" onclick="clearSelection()">
+                                <i class="fas fa-times me-2"></i>Limpiar Selección
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <!-- Scripts Bootstrap-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Mi script -->
+    <script src="assets/scripts/app.js"></script>
+</body>
+</html>

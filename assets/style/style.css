@@ -1,0 +1,235 @@
+/* CSS Personalizado para Sistema de Reservas de Cine */
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+.cinema-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hall-selection {
+    display: none;
+}
+
+.seat-selection {
+    display: none;
+}
+
+.hall-card {
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+}
+
+.hall-card:hover {
+    border-color: #007bff;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 123, 255, 0.15);
+}
+
+.screen {
+    background: linear-gradient(45deg, #343a40, #495057);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-radius: 50px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.seats-grid {
+    display: grid;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.seat-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 5px;
+}
+
+.row-label {
+    width: 30px;
+    text-align: center;
+    font-weight: bold;
+    color: #495057;
+}
+
+.seat {
+    width: 35px;
+    height: 35px;
+    border: 2px solid;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.seat:hover {
+    transform: scale(1.1);
+}
+
+/* Estados de asientos */
+.seat.available {
+    background-color: #28a745;
+    border-color: #1e7e34;
+    color: white;
+}
+
+.seat.available:hover {
+    background-color: #218838;
+}
+
+.seat.occupied {
+    background-color: #6c757d;
+    border-color: #5a6268;
+    color: white;
+    cursor: not-allowed;
+}
+
+.seat.selected {
+    background-color: #ffc107;
+    border-color: #d39e00;
+    color: #000;
+}
+
+.seat.selected:hover {
+    background-color: #e0a800;
+}
+
+/* Nuevo estado: Asientos reservados por el usuario */
+.seat.user-occupied {
+    background-color: #dc3545;
+    border-color: #bd2130;
+    color: white;
+    cursor: pointer;
+}
+
+.seat.user-occupied:hover {
+    background-color: #c82333;
+    transform: scale(1.1);
+}
+
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.legend-seat {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    border: 2px solid;
+}
+
+/* Estilos específicos para cada tipo de asiento en la leyenda */
+.legend-seat.available {
+    background-color: #28a745;
+    border-color: #1e7e34;
+}
+
+.legend-seat.occupied {
+    background-color: #6c757d;
+    border-color: #5a6268;
+}
+
+.legend-seat.selected {
+    background-color: #ffc107;
+    border-color: #d39e00;
+}
+
+.legend-seat.user-occupied {
+    background-color: #dc3545;
+    border-color: #bd2130;
+}
+
+.summary-card {
+    position: sticky;
+    top: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.selected-seats {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.seat-tag {
+    display: inline-block;
+    background: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    margin: 2px;
+    font-size: 12px;
+}
+
+/* Botones de navegación mejorados */
+.back-btn {
+    background: #6c757d;
+    border: 1px solid #5a6268;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #5a6268;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .seat {
+        width: 30px;
+        height: 30px;
+        font-size: 9px;
+    }
+    
+    .legend {
+        gap: 15px;
+    }
+    
+    .legend-item {
+        font-size: 12px;
+    }
+    
+    .row-label {
+        width: 25px;
+        font-size: 12px;
+    }
+}
